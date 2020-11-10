@@ -35,7 +35,7 @@
 ### Association
 
 - belongs_to :user
-- has_many :orders
+- has_one :orders
 
 ## orders テーブル
 
@@ -48,19 +48,19 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one:shipping_addres
+- has_one:shipping_address
 
 ## shipping_address テーブル
 
-| Column       | Type       | Options                        |
-|--------------|------------|--------------------------------|
-| postal_code  | string     | null: false                    |
-| prefecture   | integer    | null: false                    |
-| city         | text       | null: false                    |
-| addresses    | text       | null: false                    |
-| building     | text       | null: false                    |
-| phone_number | integer    | null: false                    |
-| order        | references | null: false, foreign_key: true |
+| Column        | Type       | Options                        |
+|---------------|------------|--------------------------------|
+| postal_code   | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
+| city          | string     | null: false                    |
+| addresses     | string     | null: false                    |
+| building      | string     |                                |
+| phone_number  | integer    | null: false                    |
+| order         | references | null: false, foreign_key: true |
 
 ### Association
 
