@@ -2,21 +2,22 @@
 
 ## users テーブル
 
-| Column          | Type   | Options     |
-|-----------------|--------|-------------|
-| email           | string | null: false |
-| password        | string | null: false |
-| nickname        | string | null: false |
-| last_name       | string | null: false |
-| first_name      | string | null: false |
-| last_name_kana  | string | null: false |
-| first_name_kana | string | null: false |
-| birth_date      | date   | null: false |
+| Column             | Type   | Options     |
+|--------------------|--------|-------------|
+| email              | string | null: false |
+| encrypted_password | string | null: false |
+| nickname           | string | null: false |
+| last_name          | string | null: false |
+| first_name         | string | null: false |
+| last_name_kana     | string | null: false |
+| first_name_kana    | string | null: false |
+| birth_date         | date   | null: false |
 
 ### Association
 
 - has_many :items
-- has_many :comments
+- has_many :orders
+- has_many :shipping_address
 
 ## items テーブル
 
@@ -35,7 +36,21 @@
 ### Association
 
 - belongs_to :user
+- has_many :orders
 - has_many :shipping_address
+
+## orders テーブル
+
+| Column | Type       | Options                        |
+|--------|------------|--------------------------------|
+| user   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+
 
 ## shipping_address テーブル
 
@@ -48,7 +63,7 @@
 | building     | text       | null: false                    |
 | phone_number | integer    | null: false                    |
 | user         | references | null: false, foreign_key: true |
-| item        | references | null: false, foreign_key: true |
+| item         | references | null: false, foreign_key: true |
 
 ### Association
 
