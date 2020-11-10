@@ -17,7 +17,6 @@
 
 - has_many :items
 - has_many :orders
-- has_many :shipping_address
 
 ## items テーブル
 
@@ -37,7 +36,6 @@
 
 - belongs_to :user
 - has_many :orders
-- has_many :shipping_address
 
 ## orders テーブル
 
@@ -50,7 +48,7 @@
 
 - belongs_to :user
 - belongs_to :item
-
+- has_one:shipping_addres
 
 ## shipping_address テーブル
 
@@ -62,10 +60,8 @@
 | addresses    | text       | null: false                    |
 | building     | text       | null: false                    |
 | phone_number | integer    | null: false                    |
-| user         | references | null: false, foreign_key: true |
-| item         | references | null: false, foreign_key: true |
+| order        | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :user
-- belongs_to :item
+- belongs_to :order
