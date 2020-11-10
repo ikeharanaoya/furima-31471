@@ -1,4 +1,4 @@
-<mxfile host="65bd71144e" modified="2020-11-10T06:44:48.989Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.50.1 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" version="13.6.5" etag="mDocMuX1DxO617AiIdeU">
+<mxfile host="65bd71144e" modified="2020-11-10T07:08:33.686Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.50.1 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" version="13.6.5" etag="_rUl5lP0bo4esqppo-KL">
     <diagram id="rHYUSSCg7n0p2Dwf9vDB" name="ページ1">
         <mxGraphModel dx="805" dy="608" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
@@ -33,7 +33,7 @@
                 <mxCell id="155" value="user_id&#10;item_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;align=left;verticalAlign=top;" vertex="1" parent="154">
                     <mxGeometry y="26" width="200" height="54" as="geometry"/>
                 </mxCell>
-                <mxCell id="148" value="shipping_address" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;shadow=1;fillColor=#18202A;" vertex="1" parent="1">
+                <mxCell id="148" value="shipping_addresses" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;shadow=1;fillColor=#18202A;" vertex="1" parent="1">
                     <mxGeometry x="160" y="550" width="200" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="149" value="postal_code&#10;prefecture&#10;city&#10;addresses&#10;building&#10;phone_number&#10;order_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=14;align=left;verticalAlign=top;" vertex="1" parent="148">
