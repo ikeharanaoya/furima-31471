@@ -24,5 +24,5 @@ class User < ApplicationRecord
   validates :first_name_kana, presence: true,
     format: { with: FORMAT_KANA, message: "全角カタカナのみで入力して下さい"}
   # 生年月日
-  validates :birth_date, presence: true, date: true
+  validates :birth_date, presence: true
 end
