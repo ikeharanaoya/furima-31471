@@ -13,20 +13,20 @@ class User < ApplicationRecord
 
   # パスワード
   validates_format_of :password, with: PASSWORD_REGEX, message: 'Include both letters and numbers'
-  # ニックネーム
-  validates :nickname, presence: true
-  # 苗字
-  validates :last_name, presence: true,
-                        format: { with: FORMAT_ZENKAKU, message: 'Full-width characters' }
-  # 名前
-  validates :first_name, presence: true,
-                         format: { with: FORMAT_ZENKAKU, message: 'Full-width characters' }
-  # 苗字_カナ
-  validates :last_name_kana, presence: true,
-                             format: { with: FORMAT_KANA, message: 'Full-width katakana characters' }
-  # 名前_カナ
-  validates :first_name_kana, presence: true,
-                              format: { with: FORMAT_KANA, message: 'Full-width katakana characters' }
-  # 生年月日
-  validates :birth_date, presence: true
+
+  # 必須項目の設定
+  with_options presence: true do
+    # ニックネーム
+    validates :nickname
+    # 苗字
+    validates :last_name, format: { with: FORMAT_ZENKAKU, message: "Full-width characters"}
+    # 名前
+    validates :first_name, format: { with: FORMAT_ZENKAKU, message: "Full-width characters"}
+    # 苗字_カナ
+    validates :last_name_kana, format: { with: FORMAT_KANA, message: "Full-width katakana characters"}
+    # 名前_カナ
+    validates :first_name_kana, format: { with: FORMAT_KANA, message: "Full-width katakana characters"}
+    # 生年月日
+    validates :birth_date
+  end
 end
