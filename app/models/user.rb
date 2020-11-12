@@ -19,13 +19,13 @@ class User < ApplicationRecord
     # ニックネーム
     validates :nickname
     # 苗字
-    validates :last_name, format: { with: FORMAT_ZENKAKU, message: "Full-width characters"}
+    validates :last_name, format: { with: FORMAT_ZENKAKU, message: 'Full-width characters' }
     # 名前
-    validates :first_name, format: { with: FORMAT_ZENKAKU, message: "Full-width characters"}
+    validates :first_name, format: { with: FORMAT_ZENKAKU, message: 'Full-width characters' }
     # 苗字_カナ
-    validates :last_name_kana, format: { with: FORMAT_KANA, message: "Full-width katakana characters"}
+    validates :last_name_kana, format: { with: FORMAT_KANA, message: 'Full-width katakana characters' }
     # 名前_カナ
-    validates :first_name_kana, format: { with: FORMAT_KANA, message: "Full-width katakana characters"}
+    validates :first_name_kana, format: { with: FORMAT_KANA, message: 'Full-width katakana characters' }
     # 生年月日
     validates :birth_date
   end
