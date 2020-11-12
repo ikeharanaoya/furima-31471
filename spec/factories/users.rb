@@ -8,7 +8,7 @@ FactoryBot.define do
     email                 {Faker::Internet.free_email}
     # パスワード
     password              {"test123"}
-    # パスワード再入力
+    # パスワード（確認用）
     password_confirmation {password}
     # ニックネーム
     nickname              {Faker::Games::Pokemon.name }
