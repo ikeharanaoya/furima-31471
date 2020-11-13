@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
       # 正常の場合、ルートパスに戻る
       redirect_to root_path
     else
-      # 異常の場合、投稿ページを再表示
+      # 異常の場合、商品出品画面を再表示
       render :new
     end
   end
