@@ -45,4 +45,6 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   # 発送までの日数の一覧
   belongs_to :scheduled_delivery
+  # 出品画像
+  has_one_attached :image
 end
