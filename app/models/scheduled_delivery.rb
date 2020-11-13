@@ -1,5 +1,6 @@
 class ScheduledDelivery < ActiveHash::Base
-  # 商品の状態
+  include ActiveHash::Associations
+  # 商品の状態の一覧
   self.data = [
     {id: 0, name: '---'},
     {id: 1, name: '新品、未使用'},
@@ -9,4 +10,6 @@ class ScheduledDelivery < ActiveHash::Base
     {id: 5, name: '傷や汚れあり'},
     {id: 6, name: '全体的に状態が悪い'}
   ]
+  # items テーブル
+  has_many :items
 end
