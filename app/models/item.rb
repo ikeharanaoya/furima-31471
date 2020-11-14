@@ -16,19 +16,16 @@ class Item < ApplicationRecord
   # 価格（300〜9,999,999の範囲確認）
   validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "Out of setting range"}
 
-  # 必須項目の設定（プルダウン）
-  with_options numericality: { other_than: 0 , message: "Select"} do
-    # カテゴリー(プルダウン範囲確認)
-    validates :category_id, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 10, message: "Select"}
-    # 商品の状態(プルダウン範囲確認)
-    validates :sales_status_id, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 6, message: "Select"}
-    # 配送料の負担(プルダウン範囲確認)
-    validates :shipping_fee_status_id, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 2, message: "Select"}
-    # 発送元の地域(プルダウン範囲確認)
-    validates :prefecture_id, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 47, message: "Select"}
-    # 発送までの日数(プルダウン範囲確認)
-    validates :scheduled_delivery_id, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 3, message: "Select"}
-  end
+  # カテゴリー(プルダウン範囲確認)
+  validates :category_id, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 10, message: "Select"}
+  # 商品の状態(プルダウン範囲確認)
+  validates :sales_status_id, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 6, message: "Select"}
+  # 配送料の負担(プルダウン範囲確認)
+  validates :shipping_fee_status_id, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 2, message: "Select"}
+  # 発送元の地域(プルダウン範囲確認)
+  validates :prefecture_id, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 47, message: "Select"}
+  # 発送までの日数(プルダウン範囲確認)
+  validates :scheduled_delivery_id, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 3, message: "Select"}
 
   # user テーブル
   belongs_to :user
