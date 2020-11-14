@@ -1,5 +1,5 @@
 FactoryBot.define do
-  # ユーザーに自動生成
+  # ユーザー情報を自動生成
   factory :user do
     # 日本語の設定
     Faker::Config.locale = :ja
