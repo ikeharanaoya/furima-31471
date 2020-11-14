@@ -9,6 +9,7 @@ RSpec.describe User, type: :model do
   describe 'ユーザー新規登録（ユーザー情報）' do
     context '新規登録：正常系' do
       it '全項目が、入力ありの場合、登録できる' do
+        # 登録確認
         expect(@user).to be_valid
       end
       it 'メールアドレスが、重複しない場合、登録できる' do
