@@ -19,7 +19,7 @@ FactoryBot.define do
     # 発送までの日数
     scheduled_delivery_id   { Faker::Number.between(from: 1, to: 3) }
     # 価格
-    price                   { Faker::Number.between(from: 300, to: 9999999) }
+    price                   { Faker::Number.between(from: 300, to: 9_999_999) }
 
     # usersテーブル
     association :user

@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   # トップ画面
   def index
   end
-  
+
   # 商品出品画面
   def new
     #  Itemモデルの新規オブジェクトを生成
@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
   # ストロングパラメーター取得
   private def item_params
     params.require(:item).permit(:name, :info,
-      :category_id, :sales_status_id, :shipping_fee_status_id,
-      :prefecture_id, :scheduled_delivery_id, :price, :image).merge(user_id: current_user.id)
+                                 :category_id, :sales_status_id, :shipping_fee_status_id,
+                                 :prefecture_id, :scheduled_delivery_id, :price, :image).merge(user_id: current_user.id)
   end
 end

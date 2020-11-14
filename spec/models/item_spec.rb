@@ -80,7 +80,7 @@ RSpec.describe Item, type: :model do
       end
       it '価格が、9,999,999以下の場合、登録できる' do
         # 価格に9,999,999を設定
-        @item.price = 9999999
+        @item.price = 9_999_999
         # 登録確認
         expect(@item).to be_valid
       end
@@ -116,7 +116,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("Category Select")
+        expect(@item.errors.full_messages).to include('Category Select')
       end
       it 'カテゴリーが、未選択の場合、登録できない' do
         # カテゴリーに未選択を設定
@@ -124,7 +124,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("Category Select")
+        expect(@item.errors.full_messages).to include('Category Select')
       end
       it 'カテゴリーが、11以上の場合、登録できない' do
         # カテゴリーに11以上を設定
@@ -132,7 +132,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("Category Select")
+        expect(@item.errors.full_messages).to include('Category Select')
       end
       it '商品の状態が、空の場合、登録できない' do
         # 商品の状態に空を設定
@@ -140,7 +140,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("Sales status Select")
+        expect(@item.errors.full_messages).to include('Sales status Select')
       end
       it '商品の状態が、未選択の場合、登録できない' do
         # 商品の状態に未選択を設定
@@ -148,7 +148,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("Sales status Select")
+        expect(@item.errors.full_messages).to include('Sales status Select')
       end
       it '商品の状態が、7以上の場合、登録できない' do
         # 商品の状態に7以上を設定
@@ -156,7 +156,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("Sales status Select")
+        expect(@item.errors.full_messages).to include('Sales status Select')
       end
       it '配送料の負担が、空の場合、登録できない' do
         # 配送料の負担に空を設定
@@ -164,7 +164,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("Shipping fee status Select")
+        expect(@item.errors.full_messages).to include('Shipping fee status Select')
       end
       it '配送料の負担が、未選択の場合、登録できない' do
         # 配送料の負担に未選択を設定
@@ -172,7 +172,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("Shipping fee status Select")
+        expect(@item.errors.full_messages).to include('Shipping fee status Select')
       end
       it '配送料の負担が、3以上の場合、登録できない' do
         # 配送料の負担に3以上を設定
@@ -180,7 +180,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("Shipping fee status Select")
+        expect(@item.errors.full_messages).to include('Shipping fee status Select')
       end
       it '発送元の地域が、空の場合、登録できない' do
         # 発送元の地域に空を設定
@@ -188,7 +188,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("Prefecture Select")
+        expect(@item.errors.full_messages).to include('Prefecture Select')
       end
       it '発送元の地域が、未選択の場合、登録できない' do
         # 発送元の地域に未選択を設定
@@ -196,7 +196,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("Prefecture Select")
+        expect(@item.errors.full_messages).to include('Prefecture Select')
       end
       it '発送元の地域が、48以上の場合、登録できない' do
         # 発送元の地域に48以上を設定
@@ -204,7 +204,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("Prefecture Select")
+        expect(@item.errors.full_messages).to include('Prefecture Select')
       end
       it '発送までの日数が、空の場合、登録できない' do
         # 発送までの日数に空を設定
@@ -212,7 +212,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("Scheduled delivery Select")
+        expect(@item.errors.full_messages).to include('Scheduled delivery Select')
       end
       it '発送までの日数が、未選択の場合、登録できない' do
         # 発送までの日数に未選択を設定
@@ -220,7 +220,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("Scheduled delivery Select")
+        expect(@item.errors.full_messages).to include('Scheduled delivery Select')
       end
       it '発送までの日数が、4以上の場合、登録できない' do
         # 発送までの日数に4以上を設定
@@ -228,7 +228,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("Scheduled delivery Select")
+        expect(@item.errors.full_messages).to include('Scheduled delivery Select')
       end
       it '価格が、空の場合、登録できない' do
         # 価格に空を設定
@@ -244,39 +244,39 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("Price Out of setting range")
+        expect(@item.errors.full_messages).to include('Price Out of setting range')
       end
       it '価格が、10,000,000以上の場合、登録できない' do
         # 価格に10,000,000以上を設定
-        @item.price = 10000000
+        @item.price = 10_000_000
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("Price Out of setting range")
+        expect(@item.errors.full_messages).to include('Price Out of setting range')
       end
       it '価格が、半角英字の場合、登録できない' do
         # 価格に半角英字を設定
-        @item.price = "abcXYZ"
+        @item.price = 'abcXYZ'
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("Price Half-width number")
+        expect(@item.errors.full_messages).to include('Price Half-width number')
       end
       it '価格が、全角英字の場合、登録できない' do
         # 価格に全角英字を設定
-        @item.price = "ＡＢＣｘｙｚ"
+        @item.price = 'ＡＢＣｘｙｚ'
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("Price Half-width number")
+        expect(@item.errors.full_messages).to include('Price Half-width number')
       end
       it '価格が、全角数字の場合、登録できない' do
         # 価格に全角数字を設定
-        @item.price = "３００"
+        @item.price = '３００'
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("Price Half-width number")
+        expect(@item.errors.full_messages).to include('Price Half-width number')
       end
       it 'userが、紐付いていない場合、登録できない' do
         # userに空を設定
@@ -284,7 +284,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("User must exist")
+        expect(@item.errors.full_messages).to include('User must exist')
       end
     end
   end
