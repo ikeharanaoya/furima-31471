@@ -11,13 +11,13 @@ FactoryBot.define do
     # カテゴリー
     category_id             { Faker::Number.between(from: 1, to: 10) }
     # 商品の状態
-    sales_status_id         { Faker::Number.between(from: 1, to: 3) }
+    sales_status_id         { Faker::Number.between(from: 1, to: 6) }
     # 配送料の負担
     shipping_fee_status_id  { Faker::Number.between(from: 1, to: 2) }
     # 発送元の地域
     prefecture_id           { Faker::Number.between(from: 1, to: 47) }
     # 発送までの日数
-    scheduled_delivery_id   { Faker::Number.between(from: 1, to: 6) }
+    scheduled_delivery_id   { Faker::Number.between(from: 1, to: 3) }
     # 価格
     price                   { Faker::Number.between(from: 300, to: 9999999) }
 
