@@ -9,7 +9,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
   const pathRegex = /^(?=.*item)(?=.*edit)/
 
   // 商品出品画面または、商品編集画面の場合
-  if(path === pathNew || path === pathError || path === pathRegex) {
+  if(path === pathNew || path === pathError || pathRegex.test(path)) {
     // 価格
     const itemPrice = document.getElementById("item-price");
     // 販売手数料

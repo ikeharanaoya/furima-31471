@@ -36,6 +36,13 @@ class ItemsController < ApplicationController
 
   # 商品情報編集画面
   def edit
+    # 送信されたIDで商品情報を取得
+    @item = Item.find(params[:id])
+    # 商品出品者とログインしているユーザーが違う場合
+    unless user_signed_in? && current_user.id == @item.user_id
+      # トップページに遷移する
+      redirect_to action: :index
+    end
   end
 
   # 商品情報更新処理
