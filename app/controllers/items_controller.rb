@@ -28,6 +28,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  # 商品詳細画面
+  def show
+  end
+
   # ストロングパラメーター取得
   private def item_params
     params.require(:item).permit(:name, :info,
