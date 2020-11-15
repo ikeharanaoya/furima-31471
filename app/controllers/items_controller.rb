@@ -34,6 +34,14 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  # 商品情報編集画面
+  def edit
+  end
+
+  # 商品情報更新処理
+  def update
+  end
+
   # ストロングパラメーター取得
   private def item_params
     params.require(:item).permit(:name, :info,
