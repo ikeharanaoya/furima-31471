@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   # トップ画面
   def index
     # 商品情報が新規投稿順に並ぶように取得
-    @items = Item.all.order("created_at DESC")
+    @items = Item.all.order('created_at DESC')
   end
 
   # 商品出品画面
