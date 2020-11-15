@@ -126,7 +126,7 @@
     <%= link_to '新規投稿商品', new_item_path, class: "subtitle" %>
     <ul class='item-lists'>
       <%# 商品一覧の情報確認 %>
-      <% if @items_length %>
+      <% if @items.length != 0 %>
         <%# 商品がある場合 %>
         <%# 部分テンプレートで、商品一覧を表示する %>
         <%= render partial: "item", collection: @items %>
