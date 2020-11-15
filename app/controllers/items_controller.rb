@@ -47,6 +47,16 @@ class ItemsController < ApplicationController
 
   # 商品情報更新処理
   def update
+    # データ取得
+    @item = Item.find(params[:id])
+    # データ更新＆確認
+    if @item.update(item_params)
+      # 正常の場合、商品詳細画面に戻る
+      redirect_to item_path(@item.id)
+    else
+      # 異常の場合、商品情報編集画面を再表示
+      render :edit
+    end
   end
 
   # ストロングパラメーター取得
