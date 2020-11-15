@@ -1,14 +1,11 @@
 class ScheduledDelivery < ActiveHash::Base
   include ActiveHash::Associations
-  # 商品の状態の一覧
+  # 発送までの日数の一覧
   self.data = [
     { id: 0, name: '---' },
-    { id: 1, name: '新品、未使用' },
-    { id: 2, name: '未使用に近い' },
-    { id: 3, name: '目立った傷や汚れなし' },
-    { id: 4, name: 'やや傷や汚れあり' },
-    { id: 5, name: '傷や汚れあり' },
-    { id: 6, name: '全体的に状態が悪い' }
+    { id: 1, name: '1~2日で発送' },
+    { id: 2, name: '2~3日で発送' },
+    { id: 3, name: '4~7日で発送' }
   ]
   # items テーブル
   has_many :items
