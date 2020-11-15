@@ -30,6 +30,8 @@ class ItemsController < ApplicationController
 
   # 商品詳細画面
   def show
+    # 送信されたIDでitemを取得
+    @item = Item.find(params[:id])
   end
 
   # ストロングパラメーター取得
