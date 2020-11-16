@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
   # ログイン確認。トップ画面、詳細画面以外は、ログイン画面へ遷移する
   before_action :authenticate_user!, except: [:index, :show]
-  # 送信されたIDから、商品情報を設定する（詳細画面、編集画面、更新処理）
-  before_action :set_item, only: [:show, :edit, :update]
+  # 送信されたIDから、商品情報を設定する（詳細画面、編集画面、更新処理、削除処理）
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   # トップ画面
   def index
@@ -57,6 +57,10 @@ class ItemsController < ApplicationController
       # 異常の場合、商品情報編集画面を再表示
       render :edit
     end
+  end
+
+  # 商品削除処理
+  def destroy
   end
 
   # ストロングパラメーター取得
