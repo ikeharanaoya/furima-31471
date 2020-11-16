@@ -61,8 +61,12 @@ class ItemsController < ApplicationController
 
   # 商品削除処理
   def destroy
-    # データ削除
-    @item.destroy
+    # 商品出品者とログインしているユーザーが同一の場合
+    if user_signed_in? && current_user.id == @item.user_id
+      # データ削除
+      @item.destroy
+    end
+
     # トップページに遷移する
     redirect_to root_path
   end
