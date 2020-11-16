@@ -20,8 +20,10 @@ class ItemsController < ApplicationController
   def create
     # データ保存の準備
     @item = Item.new(item_params)
-    # データ保存＆確認
-    if @item.save
+    # データ保存確認
+    if @item.valid?
+      # データ保存
+      @item.save
       # 正常の場合、ルートパスに戻る
       redirect_to root_path
     else
@@ -45,8 +47,10 @@ class ItemsController < ApplicationController
 
   # 商品情報更新処理
   def update
-    # データ更新＆確認
-    if @item.update(item_params)
+    # データ更新
+    @item.update(item_params)
+    # データ更新確認
+    if @item.valid?
       # 正常の場合、商品詳細画面に戻る
       redirect_to item_path(@item.id)
     else
