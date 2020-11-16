@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
   # ログイン確認。トップ画面、詳細画面以外は、ログイン画面へ遷移する
   before_action :authenticate_user!, except: [:index, :show]
+  # 送信されたIDから、商品情報を設定する（詳細画面、編集画面、更新処理）
+  before_action :set_item, only: [:show, :edit, :update]
 
   # トップ画面
   def index
@@ -30,14 +32,10 @@ class ItemsController < ApplicationController
 
   # 商品詳細画面
   def show
-    # 送信されたIDでitemを取得
-    @item = Item.find(params[:id])
   end
 
   # 商品情報編集画面
   def edit
-    # 送信されたIDで商品情報を取得
-    @item = Item.find(params[:id])
     # 商品出品者とログインしているユーザーが違う場合
     unless user_signed_in? && current_user.id == @item.user_id
       # トップページに遷移する
@@ -47,8 +45,6 @@ class ItemsController < ApplicationController
 
   # 商品情報更新処理
   def update
-    # データ取得
-    @item = Item.find(params[:id])
     # データ更新＆確認
     if @item.update(item_params)
       # 正常の場合、商品詳細画面に戻る
@@ -64,5 +60,11 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :info,
                                  :category_id, :sales_status_id, :shipping_fee_status_id,
                                  :prefecture_id, :scheduled_delivery_id, :price, :image).merge(user_id: current_user.id)
+  end
+
+  # 商品情報設定
+  def set_item
+    # 送信されたIDから、商品情報を設定する
+    @item = Item.find(params[:id])
   end
 end
