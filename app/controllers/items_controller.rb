@@ -61,6 +61,10 @@ class ItemsController < ApplicationController
 
   # 商品削除処理
   def destroy
+    # データ削除
+    @item.destroy
+    # トップページに遷移する
+    redirect_to root_path
   end
 
   # ストロングパラメーター取得
