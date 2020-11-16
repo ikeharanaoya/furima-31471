@@ -5,9 +5,11 @@ window.addEventListener("DOMContentLoaded", ()=>{
   const pathNew = "/items/new"
   // 商品出品画面（入力エラー時）
   const pathError = "/items"
+  // 商品編集画面
+  const pathRegex = /^(?=.*item)(?=.*edit)/
 
-  // 商品出品画面の場合
-  if(path === pathNew || path === pathError) {
+  // 商品出品画面または、商品編集画面の場合
+  if(path === pathNew || path === pathError || pathRegex.test(path)) {
     // 価格
     const itemPrice = document.getElementById("item-price");
     // 販売手数料

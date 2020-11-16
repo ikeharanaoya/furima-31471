@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   # ルートパスの設定
   root to: "items#index"
   # itemsのパス
-  resources :items, only: [:new, :create, :show]
+  resources :items, only: [:new, :create, :show, :edit, :update]
 end
