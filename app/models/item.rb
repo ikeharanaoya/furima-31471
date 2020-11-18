@@ -32,6 +32,8 @@ class Item < ApplicationRecord
 
   # user テーブル
   belongs_to :user
+  # order テーブル
+  has_one :order
   # カテゴリーの一覧
   belongs_to :category
   # 商品の状態の一覧
