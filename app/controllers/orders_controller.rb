@@ -1,9 +1,19 @@
 class OrdersController < ApplicationController
+  # ログイン確認。ログアウトのユーザーは、ログイン画面へ遷移する
+  before_action :authenticate_user!
+  # 商品の購入済み確認
+  before_action :get_oder
   # 送信されたIDから、商品情報を設定する（商品購入画面、商品購入処理）
   before_action :set_item, only: [:index, :create]
 
   # 商品購入画面
   def index
+    # 商品出品者とログインしているユーザーが同一の場合
+    if user_signed_in? && current_user.id == @item.user_id
+      # トップページに遷移する
+      redirect_to root_path
+    end
+
     # ItemBuyモデルの新規オブジェクトを生成
     @item_buy = ItemBuy.new
   end
@@ -16,7 +26,7 @@ class OrdersController < ApplicationController
     if @item_buy.valid?
       # データ保存
       @item_buy.save
-      # 正常の場合、ルートパスに戻る
+      # 正常の場合、トップページに戻る
       redirect_to root_path
     else
       # 異常の場合、商品購入画面を再表示
@@ -34,5 +44,16 @@ class OrdersController < ApplicationController
   def set_item
     # 送信されたIDから、商品情報を設定する
     @item = Item.find(params[:item_id])
+  end
+
+  # 購入済み確認
+  def get_oder
+    # 商品の購入履歴があるか検索
+    order = Order.search(params[:item_id])
+    # 履歴情報確認
+    if order.any?
+      # 購入済みの場合、トップページに戻る
+      redirect_to root_path
+    end
   end
 end
