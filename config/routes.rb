@@ -3,5 +3,8 @@ Rails.application.routes.draw do
   # ルートパスの設定
   root to: "items#index"
   # itemsのパス（index以外を設定）
-  resources :items, except: [:index]
+  resources :items, except: [:index] do
+    # ordersのパス
+    resources :orders, only: [:index,:create]
+  end
 end
