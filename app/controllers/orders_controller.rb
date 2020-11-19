@@ -24,6 +24,8 @@ class OrdersController < ApplicationController
     @item_buy = ItemBuy.new(item_buy_params)
     # データ保存確認
     if @item_buy.valid?
+      # クレジットカード決済処理
+      pay_item
       # データ保存
       @item_buy.save
       # 正常の場合、トップページに戻る
@@ -56,5 +58,20 @@ class OrdersController < ApplicationController
       # 購入済みの場合、トップページに戻る
       redirect_to root_path
     end
+  end
+
+  # クレジットカード決済処理
+  def pay_item
+    #  環境変数からキーを取得
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    # 決済処理実行
+    Payjp::Charge.create(
+      # 商品の値段
+      amount: @item.price,
+      # カードトークン
+      card: item_buy_params[:token],
+      # 通貨の種類（日本円）
+      currency: 'jpy'
+    )
   end
 end
