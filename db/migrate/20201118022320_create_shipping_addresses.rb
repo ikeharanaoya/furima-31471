@@ -12,7 +12,7 @@ class CreateShippingAddresses < ActiveRecord::Migration[6.0]
       # 建物名
       t.string      :building
       # 電話番号
-      t.integer     :phone_number,    null: false
+      t.string     :phone_number,    null: false, limit: 11
       # orders テーブル
       t.references  :order,           null: false, foreign_key: true
 
