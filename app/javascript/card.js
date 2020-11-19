@@ -35,7 +35,7 @@ window.addEventListener("DOMContentLoaded", () => {
         // フォームの再送信
         document.getElementById("charge-form").submit();
         // フォーム情報の全項目クリア
-        document.getElementById("form").reset();
+        document.getElementById("charge-form").reset();
       }
 
       // フォームの情報を取得

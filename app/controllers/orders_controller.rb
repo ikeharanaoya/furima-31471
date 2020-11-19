@@ -21,16 +21,20 @@ class OrdersController < ApplicationController
   # 商品購入処理
   def create
      # データ保存の準備
-    @item_buy = ItemBuy.new(item_buy_params)
+    item_oder = ItemBuy.new(item_buy_params)
     # データ保存確認
-    if @item_buy.valid?
+    if item_oder.valid?
       # クレジットカード決済処理
       pay_item
       # データ保存
-      @item_buy.save
+      item_oder.save
       # 正常の場合、トップページに戻る
       redirect_to root_path
     else
+      # ItemBuyモデルの新規オブジェクトを生成
+      @item_buy = ItemBuy.new
+      # エラーメッセージを上書き
+      @item_buy.errors.merge!(item_oder.errors)
       # 異常の場合、商品購入画面を再表示
       render :index
     end
