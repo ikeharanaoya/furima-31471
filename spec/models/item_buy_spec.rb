@@ -58,7 +58,7 @@ RSpec.describe ItemBuy, type: :model do
         # 登録確認
         @item_buy.valid?
         # エラーメッセージ確認
-        expect(@item_buy.errors.full_messages).to include("Postal code Postal code Input correctly")
+        expect(@item_buy.errors.full_messages).to include('Postal code Postal code Input correctly')
       end
       it '郵便番号が、ハイフンなし（1234567）の場合、登録できない' do
         # 郵便番号にハイフンなし（1234567）を設定
@@ -66,7 +66,7 @@ RSpec.describe ItemBuy, type: :model do
         # 登録確認
         @item_buy.valid?
         # エラーメッセージ確認
-        expect(@item_buy.errors.full_messages).to include("Postal code Postal code Input correctly")
+        expect(@item_buy.errors.full_messages).to include('Postal code Postal code Input correctly')
       end
       it '郵便番号が、前半2桁未満（12-4567）の場合、登録できない' do
         # 郵便番号に前半2桁未満（12-4567）を設定
@@ -74,7 +74,7 @@ RSpec.describe ItemBuy, type: :model do
         # 登録確認
         @item_buy.valid?
         # エラーメッセージ確認
-        expect(@item_buy.errors.full_messages).to include("Postal code Postal code Input correctly")
+        expect(@item_buy.errors.full_messages).to include('Postal code Postal code Input correctly')
       end
       it '郵便番号が、後半4桁未満（123-567）の場合、登録できない' do
         # 郵便番号に後半4桁未満（123-567）を設定
@@ -82,7 +82,7 @@ RSpec.describe ItemBuy, type: :model do
         # 登録確認
         @item_buy.valid?
         # エラーメッセージ確認
-        expect(@item_buy.errors.full_messages).to include("Postal code Postal code Input correctly")
+        expect(@item_buy.errors.full_messages).to include('Postal code Postal code Input correctly')
       end
       it '都道府県が、空の場合、登録できない' do
         # 都道府県に空を設定
@@ -90,7 +90,7 @@ RSpec.describe ItemBuy, type: :model do
         # 登録確認
         @item_buy.valid?
         # エラーメッセージ確認
-        expect(@item_buy.errors.full_messages).to include("Prefecture Select")
+        expect(@item_buy.errors.full_messages).to include('Prefecture Select')
       end
       it '都道府県が、未選択の場合、登録できない' do
         # 都道府県に未選択を設定
@@ -98,7 +98,7 @@ RSpec.describe ItemBuy, type: :model do
         # 登録確認
         @item_buy.valid?
         # エラーメッセージ確認
-        expect(@item_buy.errors.full_messages).to include("Prefecture Select")
+        expect(@item_buy.errors.full_messages).to include('Prefecture Select')
       end
       it '都道府県が、48以上の場合、登録できない' do
         # 都道府県に48以上を設定
@@ -106,7 +106,7 @@ RSpec.describe ItemBuy, type: :model do
         # 登録確認
         @item_buy.valid?
         # エラーメッセージ確認
-        expect(@item_buy.errors.full_messages).to include("Prefecture Select")
+        expect(@item_buy.errors.full_messages).to include('Prefecture Select')
       end
       it '市区町村が、空の場合、登録できない' do
         # 市区町村に空を設定
@@ -138,7 +138,7 @@ RSpec.describe ItemBuy, type: :model do
         # 登録確認
         @item_buy.valid?
         # エラーメッセージ確認
-        expect(@item_buy.errors.full_messages).to include("Phone number Input only number")
+        expect(@item_buy.errors.full_messages).to include('Phone number Input only number')
       end
       it '電話番号が、全角英字の場合、登録できない' do
         # 電話番号に全角英字を設定
@@ -146,7 +146,7 @@ RSpec.describe ItemBuy, type: :model do
         # 登録確認
         @item_buy.valid?
         # エラーメッセージ確認
-        expect(@item_buy.errors.full_messages).to include("Phone number Input only number")
+        expect(@item_buy.errors.full_messages).to include('Phone number Input only number')
       end
       it '電話番号が、全角数字の場合、登録できない' do
         # 電話番号に空を設定
@@ -154,7 +154,7 @@ RSpec.describe ItemBuy, type: :model do
         # 登録確認
         @item_buy.valid?
         # エラーメッセージ確認
-        expect(@item_buy.errors.full_messages).to include("Phone number Input only number")
+        expect(@item_buy.errors.full_messages).to include('Phone number Input only number')
       end
       it '電話番号が、ハイフンあり（123-456-910）の場合、登録できない' do
         # 電話番号に空を設定
@@ -162,7 +162,7 @@ RSpec.describe ItemBuy, type: :model do
         # 登録確認
         @item_buy.valid?
         # エラーメッセージ確認
-        expect(@item_buy.errors.full_messages).to include("Phone number Input only number")
+        expect(@item_buy.errors.full_messages).to include('Phone number Input only number')
       end
       it '電話番号が、12桁の場合、登録できない' do
         # 電話番号に空を設定
@@ -170,7 +170,7 @@ RSpec.describe ItemBuy, type: :model do
         # 登録確認
         @item_buy.valid?
         # エラーメッセージ確認
-        expect(@item_buy.errors.full_messages).to include("Phone number Too long")
+        expect(@item_buy.errors.full_messages).to include('Phone number Too long')
       end
       it 'トークンが、空の場合、登録できない' do
         # トークンに空を設定
@@ -184,13 +184,13 @@ RSpec.describe ItemBuy, type: :model do
     context '注文情報登録：アソシエーション確認' do
       it 'userとitemが、紐付いている場合、登録できる' do
         # 注文情報を生成
-        @order= FactoryBot.build(:order)
+        @order = FactoryBot.build(:order)
         # 登録確認
         expect(@order).to be_valid
       end
       it 'userが、紐付いていない場合、登録できない' do
         # 注文情報を生成
-        @order= FactoryBot.build(:order)
+        @order = FactoryBot.build(:order)
         # userに空を設定
         @order.user = nil
         # 登録確認
@@ -200,7 +200,7 @@ RSpec.describe ItemBuy, type: :model do
       end
       it 'userが、紐付いていない場合、登録できない' do
         # 注文情報を生成
-        @order= FactoryBot.build(:order)
+        @order = FactoryBot.build(:order)
         # userに空を設定
         @order.item = nil
         # 登録確認
@@ -212,13 +212,13 @@ RSpec.describe ItemBuy, type: :model do
     context '配達先情報登録：アソシエーション確認' do
       it 'orderが、紐付いている場合、登録できる' do
         # 注文情報を生成
-        @shipping_address= FactoryBot.build(:shipping_address)
+        @shipping_address = FactoryBot.build(:shipping_address)
         # 登録確認
         expect(@shipping_address).to be_valid
       end
       it 'orderが、紐付いていない場合、登録できない' do
         # 注文情報を生成
-        @shipping_address= FactoryBot.build(:shipping_address)
+        @shipping_address = FactoryBot.build(:shipping_address)
         # userに空を設定
         @shipping_address.order = nil
         # 登録確認

@@ -17,6 +17,6 @@ FactoryBot.define do
     phone_number      { Faker::Number.between(from: 0, to: 99_999_999_999) }
 
     # トークン
-    token             { "tok_abcdefghijk00000000000000000" }
+    token             { 'tok_abcdefghijk00000000000000000' }
   end
 end

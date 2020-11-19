@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
 
   # 商品購入処理
   def create
-     # データ保存の準備
+    # データ保存の準備
     item_oder = ItemBuy.new(item_buy_params)
     # データ保存確認
     if item_oder.valid?
@@ -43,8 +43,8 @@ class OrdersController < ApplicationController
   # ストロングパラメーター取得
   private def item_buy_params
     params.require(:item_buy).permit(:postal_code, :prefecture_id, :city,
-       :addresses, :building, :phone_number).merge(item_id: params[:item_id], user_id: current_user.id,
-        token: params[:token])
+                                     :addresses, :building, :phone_number).merge(item_id: params[:item_id], user_id: current_user.id,
+                                                                                 token: params[:token])
   end
 
   # 商品情報設定
@@ -67,7 +67,7 @@ class OrdersController < ApplicationController
   # クレジットカード決済処理
   def pay_item
     #  環境変数からキーを取得
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     # 決済処理実行
     Payjp::Charge.create(
       # 商品の値段
