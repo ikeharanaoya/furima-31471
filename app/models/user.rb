@@ -33,5 +33,5 @@ class User < ApplicationRecord
   # items テーブル
   has_many :items, dependent: :destroy
   # orders テーブル
-  has_many :orders
+  has_many :orders, dependent: :destroy
 end

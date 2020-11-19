@@ -4,7 +4,7 @@ class Order < ApplicationRecord
   # item テーブル
   belongs_to :item
   # shipping_address テーブル
-  has_one :shipping_address
+  has_one :shipping_address, dependent: :destroy
 
   # 検索処理(商品IDで検索)
   def self.search(item_id)
