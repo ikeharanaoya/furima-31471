@@ -37,7 +37,8 @@ class OrdersController < ApplicationController
   # ストロングパラメーター取得
   private def item_buy_params
     params.require(:item_buy).permit(:postal_code, :prefecture_id, :city,
-       :addresses, :building, :phone_number).merge(item_id: params[:item_id], user_id: current_user.id)
+       :addresses, :building, :phone_number).merge(item_id: params[:item_id], user_id: current_user.id,
+        token: params[:token])
   end
 
   # 商品情報設定
