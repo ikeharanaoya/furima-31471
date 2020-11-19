@@ -198,10 +198,10 @@ RSpec.describe ItemBuy, type: :model do
         # エラーメッセージ確認
         expect(@order.errors.full_messages).to include('User must exist')
       end
-      it 'userが、紐付いていない場合、登録できない' do
+      it 'itemが、紐付いていない場合、登録できない' do
         # 注文情報を生成
         @order = FactoryBot.build(:order)
-        # userに空を設定
+        # itemに空を設定
         @order.item = nil
         # 登録確認
         @order.valid?
@@ -219,7 +219,7 @@ RSpec.describe ItemBuy, type: :model do
       it 'orderが、紐付いていない場合、登録できない' do
         # 注文情報を生成
         @shipping_address = FactoryBot.build(:shipping_address)
-        # userに空を設定
+        # orderに空を設定
         @shipping_address.order = nil
         # 登録確認
         @shipping_address.valid?
