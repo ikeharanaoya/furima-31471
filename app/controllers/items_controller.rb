@@ -38,8 +38,8 @@ class ItemsController < ApplicationController
 
   # 商品情報編集画面
   def edit
-    # 商品出品者とログインしているユーザーが違う場合
-    unless user_signed_in? && current_user.id == @item.user_id
+    # 商品出品者とログインしているユーザーが違う場合かつ、未販売の場合
+    unless user_signed_in? && current_user.id == @item.user_id && @item.order.nil?
       # トップページに遷移する
       redirect_to action: :index
     end
