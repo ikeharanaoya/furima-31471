@@ -1,17 +1,22 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
+<%= search_form_for @p, url: search_items_path do |f| %>
   <div class='search-bar-contents'>
     <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
-    <%= search_form_for @p, url: search_items_path ,class: "search-form" do |f| %>
+    <div class="search-form">
+      <%# 商品名で検索 %>
       <%= f.search_field :name_cont, class: 'input-box', placeholder: 'キーワードから探す' %>
       <button class="search-button">
         <%= image_tag "search.png", class:"search-icon" %>
       </button>
-    <% end %>
+    </div>
   </div>
   <div class='nav'>
     <ul class='lists-left'>
-      <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
+      <li class="category-list">
+        <%= f.label :category_id_eq, 'カテゴリー' %>
+        <%= f.collection_select :category_id_eq, Category.where.not(id: 0), :id , :name ,include_blank: '---' %>
+      </li>
       <li><%= link_to 'ブランド', "#", class: "brand-list" %></li>
     </ul>
     <ul class='lists-right'>
@@ -26,4 +31,5 @@
       <% end %>
     </ul>
   </div>
+<% end %>
 </header>
