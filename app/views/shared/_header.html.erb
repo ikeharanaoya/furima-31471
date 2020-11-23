@@ -17,7 +17,6 @@
         <%= f.label :category_id_eq, 'カテゴリー' %>
         <%= f.collection_select :category_id_eq, Category.where.not(id: 0), :id , :name ,include_blank: '---' %>
       </li>
-      <li><%= link_to 'ブランド', "#", class: "brand-list" %></li>
     </ul>
     <ul class='lists-right'>
       <% if user_signed_in? %>
@@ -29,6 +28,14 @@
         <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
         <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
       <% end %>
+    </ul>
+  </div>
+  <div class='nav'>
+    <ul class='lists-left'>
+      <li class="brand-list">
+        <%= f.label :sales_status_id_in, '商品の状態' %><br>
+        <%= f.collection_check_boxes :sales_status_id_in, SalesStatus.where.not(id: 0), :id, :name %>
+      </li>
     </ul>
   </div>
 <% end %>
