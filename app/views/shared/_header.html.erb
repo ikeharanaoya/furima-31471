@@ -38,5 +38,20 @@
       </li>
     </ul>
   </div>
+    <div class='nav'>
+    <ul class='lists-left'>
+      <li class="brand-list">
+        <%= f.label :price_lteq, '価格' %><br>
+        <%= f.radio_button :price_lteq, ''%>
+        <%= f.label 'price_lteq_', '指定なし' %>
+        <%= f.radio_button :price_lteq, '1000' %>
+        <%= f.label 'price_lteq_1000', '１０００円以下' %>
+        <%= f.radio_button :price_lteq, '10000' %>
+        <%= f.label 'price_lteq_10000', '1万円以下' %>
+        <%= f.radio_button :price_lteq, '100000' %>
+        <%= f.label 'price_lteq_100000', '１０万円以下' %>
+      </li>
+    </ul>
+  </div>
 <% end %>
 </header>
