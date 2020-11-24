@@ -16,6 +16,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
     // 価格：検索項目
     const searchPrice = document.getElementById("price")
 
+    // 商品の状態ラベルクリック時のアクション
     searchSalesStatusLa.addEventListener('click', function() {
       // 商品の状態の表示と非表示の設定
       if (searchSalesStatus.getAttribute("style") == "display:block;") {
@@ -27,8 +28,9 @@ window.addEventListener("DOMContentLoaded", ()=>{
       }
     })
 
+    // 価格ラベルクリック時のアクション
     searchPriceLa.addEventListener('click', function() {
-      // 商品の状態の表示と非表示の設定
+      // 価格の表示と非表示の設定
       if (searchPrice.getAttribute("style") == "display:block;") {
         // 項目を表示する
         searchPrice.removeAttribute("style", "display:block;")

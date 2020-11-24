@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  # ログイン確認。トップ画面、詳細画面以外は、ログイン画面へ遷移する
-  before_action :authenticate_user!, except: [:index, :show]
+  # ログイン確認。トップ画面、詳細画面、検索画面以外は、ログイン画面へ遷移する
+  before_action :authenticate_user!, except: [:index, :show, :search]
   # 送信されたIDから、商品情報を設定する（詳細画面、編集画面、更新処理、削除処理）
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   # 検索情報を設定
