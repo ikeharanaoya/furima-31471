@@ -14,8 +14,10 @@
   <div class='nav'>
     <ul class='lists-left'>
       <li class="category-list">
-        <%= f.label :category_id_eq, 'カテゴリー' %>
+        <%= f.label :category_id_eq, '■カテゴリー' %>
         <%= f.collection_select :category_id_eq, Category.where.not(id: 0), :id , :name ,include_blank: '---' %>
+        <%= f.label :sales_status_id_in, ' ■商品の状態', id: "sales_status_la" %>
+        <%= f.label :price_lteq, ' ■価格', id: "price_la" %>
       </li>
     </ul>
     <ul class='lists-right'>
@@ -31,17 +33,17 @@
     </ul>
   </div>
   <div class='nav'>
-    <ul class='lists-left'>
-      <li class="brand-list">
-        <%= f.label :sales_status_id_in, '商品の状態' %><br>
+    <ul>
+      <li class="brand-list hidden" id="sales_status" >
+        <%= f.label :sales_status_id_in, '商品の状態：' %><br>
         <%= f.collection_check_boxes :sales_status_id_in, SalesStatus.where.not(id: 0), :id, :name %>
       </li>
     </ul>
   </div>
     <div class='nav'>
-    <ul class='lists-left'>
-      <li class="brand-list">
-        <%= f.label :price_lteq, '価格' %><br>
+    <ul>
+      <li class="brand-list hidden" id="price">
+        <%= f.label :price_lteq, '価格：' %><br>
         <%= f.radio_button :price_lteq, ''%>
         <%= f.label 'price_lteq_', '指定なし' %>
         <%= f.radio_button :price_lteq, '1000' %>
