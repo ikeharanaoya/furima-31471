@@ -1,11 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe "検索機能", type: :system do
-
+RSpec.describe '検索機能', type: :system do
   # Basic認証
-  def basic_pass(path) 
-    username = ENV["BASIC_AUTH_USER"]
-    password = ENV["BASIC_AUTH_PASSWORD"]
+  def basic_pass(path)
+    username = ENV['BASIC_AUTH_USER']
+    password = ENV['BASIC_AUTH_PASSWORD']
     visit "http://#{username}:#{password}@#{Capybara.current_session.server.host}:#{Capybara.current_session.server.port}#{path}"
   end
 
@@ -14,7 +13,7 @@ RSpec.describe "検索機能", type: :system do
     @item = FactoryBot.create(:item)
   end
 
-  context '検索処理'do
+  context '検索処理' do
     it '検索フォームで正しく、検索できる' do
       # トップページに遷移する
       basic_pass root_path
@@ -31,7 +30,7 @@ RSpec.describe "検索機能", type: :system do
       # カテゴリーの項目名を取得
       name = Category.find(@item.category_id).name
       # カテゴリーに検索情報を入力する
-      select name , from: 'q[category_id_eq]'
+      select name, from: 'q[category_id_eq]'
       # 検索ボタンを押下する
       find('button[class="search-button"]').click
       # 検索結果に商品情報が存在することを確認する（商品名）
@@ -70,21 +69,21 @@ RSpec.describe "検索機能", type: :system do
   # 価格判定処理
   def select_price(price)
     # 判定結果_文字列
-    select_radio = "指定なし"
+    select_radio = '指定なし'
 
-    # 1000円以下の場合 
+    # 1000円以下の場合
     if price <= 1000
       # １０００円以下を設定
-      select_radio = "１０００円以下"
-    elsif price <= 10000
+      select_radio = '１０００円以下'
+    elsif price <= 10_000
       # １万円以下を設定
-      select_radio = "１万円以下"
-    elsif price <= 100000
+      select_radio = '１万円以下'
+    elsif price <= 100_000
       # １０万円以下を設定
-      select_radio = "１０万円以下"
+      select_radio = '１０万円以下'
     end
 
     # 価格で選択する文字を連携
-    return select_radio
+    select_radio
   end
 end

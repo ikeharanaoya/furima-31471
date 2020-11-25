@@ -58,7 +58,7 @@ RSpec.describe User, type: :model do
         @user.save
         # 新規ユーザー生成
         another_user = FactoryBot.build(:user)
-        # 違うメールアドレスを設定
+        # 同じメールアドレスを設定
         another_user.email = EMAIL
         # 登録確認
         another_user.valid?
