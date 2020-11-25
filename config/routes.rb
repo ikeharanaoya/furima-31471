@@ -6,5 +6,9 @@ Rails.application.routes.draw do
   resources :items, except: [:index] do
     # ordersのパス
     resources :orders, only: [:index,:create]
+    collection do
+      # 検索処理のパス
+      get 'search'
+    end
   end
 end

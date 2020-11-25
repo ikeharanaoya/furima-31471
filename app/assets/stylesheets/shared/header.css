@@ -71,6 +71,10 @@
   color: #333333;
 }
 
+.brand-list>label {
+  margin: 0px 4px;
+}
+
 .lists-right {
   display: flex;
   list-style: none;
@@ -101,4 +105,8 @@
 .sign-up {
   text-decoration: none;
   color: #333333;
+}
+
+.hidden{
+  display: none;
 }
