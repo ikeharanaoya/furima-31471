@@ -2,11 +2,7 @@
 
 <%# 商品の概要 %>
 <div class="item-show">
-  <div class="item-box">
-    <h2 class="name">
-      <%# 商品名 %>
-      <%= @item.name %>
-    </h2>
+  <div class="item-body">
     <div class='item-img-content'>
       <%# 出品画像 %>
       <%= image_tag @item.image ,class:"item-box-img" %>
@@ -18,35 +14,43 @@
         </div>
       <% end %>
     </div>
-    <div class="item-price-box">
-      <span class="item-price">
-        <%# 価格 %>
-        <%= "¥ #{@item.price.to_s(:delimited)}" %>
-      </span>
-      <span class="item-postage">
-        <%# 配送料の負担 %>
-        <%= @item.shipping_fee_status.name %>
-      </span>
+    <div class="item-box">
+      <h2 class="name">
+        <%# 商品名 %>
+        <%= @item.name %>
+      </h2>
+      <div class="item-price-box">
+        <span class="item-price">
+          <%# 価格 %>
+          <%= "¥ #{@item.price.to_s(:delimited)}" %>
+        </span>
+        <span class="item-postage">
+          <%# 配送料の負担 %>
+          <%= @item.shipping_fee_status.name %>
+        </span>
+      </div>
+      <%# 商品説明 %>
+      <div class="item-explain-box"><span><%= @item.info %></span>
+      </div>
     </div>
 
+  </div>
+  <div class="item-box-bottom">
     <%# ログインかつ、未販売の場合%>
     <% if user_signed_in? && @item.order.nil? %>
-      <%# 商品出品者と同一の場合 %>
-      <% if current_user.id == @item.user_id %>
-        <%= link_to '商品の編集', edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
-        <p class='or-text'>or</p>
-        <%= link_to '削除', item_path(@item.id), method: :delete, class:'item-destroy' %>
+      <div class="item-btn">
+        <%# 商品出品者と同一の場合 %>
+        <% if current_user.id == @item.user_id %>
+          <%= link_to '削除', item_path(@item.id), method: :delete, class:'item-destroy' %>
+          <%= link_to '商品の編集', edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
 
-      <%# 商品出品者と違う場合 %>
-      <% else %>
-        <%= link_to '購入画面に進む', item_orders_path(@item.id) ,class:"item-red-btn"%>
-      <% end %>
+        <%# 商品出品者と違う場合 %>
+        <% else %>
+          <%= link_to '購入画面に進む', item_orders_path(@item.id) ,class:"item-red-btn"%>
+        <% end %>
+      </div>
     <% end %>
 
-    <div class="item-explain-box">
-      <%# 商品説明 %>
-      <span><%= @item.info %></span>
-    </div>
     <table class="detail-table">
       <tbody>
         <tr>
