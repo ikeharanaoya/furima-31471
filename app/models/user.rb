@@ -12,20 +12,20 @@ class User < ApplicationRecord
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
 
   # パスワード
-  validates_format_of :password, with: PASSWORD_REGEX, message: 'Include both letters and numbers'
+  validates_format_of :password, with: PASSWORD_REGEX, message: 'は文字と数字の両方を含めてください'
 
   # 必須項目の設定
   with_options presence: true do
     # ニックネーム
     validates :nickname
     # 苗字
-    validates :last_name, format: { with: FORMAT_ZENKAKU, message: 'Full-width characters' }
+    validates :last_name, format: { with: FORMAT_ZENKAKU, message: 'は全角文字で入力してください' }
     # 名前
-    validates :first_name, format: { with: FORMAT_ZENKAKU, message: 'Full-width characters' }
+    validates :first_name, format: { with: FORMAT_ZENKAKU, message: 'は全角文字で入力してください' }
     # 苗字_カナ
-    validates :last_name_kana, format: { with: FORMAT_KANA, message: 'Full-width katakana characters' }
+    validates :last_name_kana, format: { with: FORMAT_KANA, message: 'は全角カタカナで入力してください' }
     # 名前_カナ
-    validates :first_name_kana, format: { with: FORMAT_KANA, message: 'Full-width katakana characters' }
+    validates :first_name_kana, format: { with: FORMAT_KANA, message: 'は全角カタカナで入力してください' }
     # 生年月日
     validates :birth_date
   end
