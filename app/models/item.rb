@@ -10,9 +10,9 @@ class Item < ApplicationRecord
     # 説明
     validates :info
     # 価格（半角数字確認、300〜9,999,999の範囲確認）
-    validates :price, numericality: { only_integer: true ,greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999}
+    validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   end
-  
+
   # 必須項目の確認
   with_options numericality: { greater_than_or_equal_to: 1, message: 'を選択してください' } do
     # カテゴリー(プルダウン範囲確認)

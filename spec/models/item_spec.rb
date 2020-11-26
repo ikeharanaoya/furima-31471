@@ -92,7 +92,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("出品画像を入力してください")
+        expect(@item.errors.full_messages).to include('出品画像を入力してください')
       end
       it '商品名が、空の場合、登録できない' do
         # 商品名に空を設定
@@ -100,7 +100,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("商品名を入力してください")
+        expect(@item.errors.full_messages).to include('商品名を入力してください')
       end
       it '説明が、空の場合、登録できない' do
         # 説明に空を設定
@@ -108,7 +108,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("商品の説明を入力してください")
+        expect(@item.errors.full_messages).to include('商品の説明を入力してください')
       end
       it 'カテゴリーが、空の場合、登録できない' do
         # カテゴリーに空を設定
@@ -116,7 +116,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("カテゴリーを選択してください")
+        expect(@item.errors.full_messages).to include('カテゴリーを選択してください')
       end
       it 'カテゴリーが、未選択の場合、登録できない' do
         # カテゴリーに未選択を設定
@@ -124,7 +124,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("カテゴリーを選択してください")
+        expect(@item.errors.full_messages).to include('カテゴリーを選択してください')
       end
       it 'カテゴリーが、11以上の場合、登録できない' do
         # カテゴリーに11以上を設定
@@ -132,7 +132,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("カテゴリーを選択してください")
+        expect(@item.errors.full_messages).to include('カテゴリーを選択してください')
       end
       it '商品の状態が、空の場合、登録できない' do
         # 商品の状態に空を設定
@@ -140,7 +140,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("商品の状態を選択してください")
+        expect(@item.errors.full_messages).to include('商品の状態を選択してください')
       end
       it '商品の状態が、未選択の場合、登録できない' do
         # 商品の状態に未選択を設定
@@ -148,7 +148,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("商品の状態を選択してください")
+        expect(@item.errors.full_messages).to include('商品の状態を選択してください')
       end
       it '商品の状態が、7以上の場合、登録できない' do
         # 商品の状態に7以上を設定
@@ -156,7 +156,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("商品の状態を選択してください")
+        expect(@item.errors.full_messages).to include('商品の状態を選択してください')
       end
       it '配送料の負担が、空の場合、登録できない' do
         # 配送料の負担に空を設定
@@ -164,7 +164,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("配送料の負担を選択してください")
+        expect(@item.errors.full_messages).to include('配送料の負担を選択してください')
       end
       it '配送料の負担が、未選択の場合、登録できない' do
         # 配送料の負担に未選択を設定
@@ -172,7 +172,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("配送料の負担を選択してください")
+        expect(@item.errors.full_messages).to include('配送料の負担を選択してください')
       end
       it '配送料の負担が、3以上の場合、登録できない' do
         # 配送料の負担に3以上を設定
@@ -180,7 +180,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("配送料の負担を選択してください")
+        expect(@item.errors.full_messages).to include('配送料の負担を選択してください')
       end
       it '発送元の地域が、空の場合、登録できない' do
         # 発送元の地域に空を設定
@@ -188,7 +188,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("発送元の地域を選択してください")
+        expect(@item.errors.full_messages).to include('発送元の地域を選択してください')
       end
       it '発送元の地域が、未選択の場合、登録できない' do
         # 発送元の地域に未選択を設定
@@ -196,7 +196,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("発送元の地域を選択してください")
+        expect(@item.errors.full_messages).to include('発送元の地域を選択してください')
       end
       it '発送元の地域が、48以上の場合、登録できない' do
         # 発送元の地域に48以上を設定
@@ -204,7 +204,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("発送元の地域を選択してください")
+        expect(@item.errors.full_messages).to include('発送元の地域を選択してください')
       end
       it '発送までの日数が、空の場合、登録できない' do
         # 発送までの日数に空を設定
@@ -212,7 +212,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("発送までの日数を選択してください")
+        expect(@item.errors.full_messages).to include('発送までの日数を選択してください')
       end
       it '発送までの日数が、未選択の場合、登録できない' do
         # 発送までの日数に未選択を設定
@@ -220,7 +220,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("発送までの日数を選択してください")
+        expect(@item.errors.full_messages).to include('発送までの日数を選択してください')
       end
       it '発送までの日数が、4以上の場合、登録できない' do
         # 発送までの日数に4以上を設定
@@ -228,7 +228,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("発送までの日数を選択してください")
+        expect(@item.errors.full_messages).to include('発送までの日数を選択してください')
       end
       it '価格が、空の場合、登録できない' do
         # 価格に空を設定
@@ -236,7 +236,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("価格を入力してください")
+        expect(@item.errors.full_messages).to include('価格を入力してください')
       end
       it '価格が、300未満の場合、登録できない' do
         # 価格に300未満を設定
@@ -244,7 +244,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("価格は300以上の値にしてください")
+        expect(@item.errors.full_messages).to include('価格は300以上の値にしてください')
       end
       it '価格が、10,000,000以上の場合、登録できない' do
         # 価格に10,000,000以上を設定
@@ -252,7 +252,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("価格は9999999以下の値にしてください")
+        expect(@item.errors.full_messages).to include('価格は9999999以下の値にしてください')
       end
       it '価格が、半角英字の場合、登録できない' do
         # 価格に半角英字を設定
@@ -260,7 +260,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("価格は数値で入力してください")
+        expect(@item.errors.full_messages).to include('価格は数値で入力してください')
       end
       it '価格が、全角英字の場合、登録できない' do
         # 価格に全角英字を設定
@@ -268,7 +268,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("価格は数値で入力してください")
+        expect(@item.errors.full_messages).to include('価格は数値で入力してください')
       end
       it '価格が、全角数字の場合、登録できない' do
         # 価格に全角数字を設定
@@ -276,7 +276,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("価格は数値で入力してください")
+        expect(@item.errors.full_messages).to include('価格は数値で入力してください')
       end
       it 'userが、紐付いていない場合、登録できない' do
         # userに空を設定
@@ -284,7 +284,7 @@ RSpec.describe Item, type: :model do
         # 登録確認
         @item.valid?
         # エラーメッセージ確認
-        expect(@item.errors.full_messages).to include("Userを入力してください")
+        expect(@item.errors.full_messages).to include('Userを入力してください')
       end
     end
   end
