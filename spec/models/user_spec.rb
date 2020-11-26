@@ -39,7 +39,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include("Nickname can't be blank")
+        expect(@user.errors.full_messages).to include("ニックネームを入力してください")
       end
       it 'メールアドレスが、空の場合、登録できない' do
         # メールアドレスに空を設定
@@ -47,7 +47,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include("Email can't be blank")
+        expect(@user.errors.full_messages).to include("Eメールを入力してください")
       end
       it 'メールアドレスが、重複する場合、登録できない' do
         # 共通のメールアドレス
@@ -63,7 +63,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         another_user.valid?
         # エラーメッセージ確認
-        expect(another_user.errors.full_messages).to include('Email has already been taken')
+        expect(another_user.errors.full_messages).to include("Eメールはすでに存在します")
       end
       it 'メールアドレスが、「@」がない場合、登録できない' do
         # メールアドレスに空を設定
@@ -71,7 +71,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include('Email is invalid')
+        expect(@user.errors.full_messages).to include("Eメールは不正な値です")
       end
       it 'パスワードが、空の場合、登録できない' do
         # パスワードに空を設定
@@ -79,7 +79,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include("Password can't be blank")
+        expect(@user.errors.full_messages).to include("パスワードを入力してください")
       end
       it 'パスワードが、5文字以下の場合、登録できない' do
         # パスワードに5文字を設定
@@ -88,7 +88,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
+        expect(@user.errors.full_messages).to include("パスワードは6文字以上で入力してください")
       end
       it 'パスワードが、半角数字のみの場合、登録できない' do
         # パスワードに半角数字のみを設定
@@ -97,7 +97,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include('Password Include both letters and numbers')
+        expect(@user.errors.full_messages).to include("パスワードは文字と数字の両方を含めてください")
       end
       it 'パスワードが、半角英字のみの場合、登録できない' do
         # パスワードに半角数字のみを設定
@@ -106,7 +106,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include('Password Include both letters and numbers')
+        expect(@user.errors.full_messages).to include("パスワードは文字と数字の両方を含めてください")
       end
       it 'パスワード（確認用）が、空の場合、登録できない' do
         # パスワード（確認用）に空を設定
@@ -114,7 +114,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+        expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
       end
       it 'パスワードとパスワード（確認用）が、違う場合、登録できない' do
         # パスワードとパスワード（確認用）に違う値を設定
@@ -123,7 +123,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+        expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
       end
     end
   end
@@ -165,7 +165,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include("Last name can't be blank")
+        expect(@user.errors.full_messages).to include("苗字を入力してください")
       end
       it 'ユーザー本名（苗字）が、半角カタカナの場合、登録できない' do
         # ユーザー本名（苗字）に半角カタカナを設定
@@ -173,7 +173,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include('Last name Full-width characters')
+        expect(@user.errors.full_messages).to include("苗字は全角文字で入力してください")
       end
       it 'ユーザー本名（苗字）が、半角英数字の場合、登録できない' do
         # ユーザー本名（苗字）に半角英数字を設定
@@ -181,7 +181,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include('Last name Full-width characters')
+        expect(@user.errors.full_messages).to include("苗字は全角文字で入力してください")
       end
       it 'ユーザー本名（名前）が、空の場合、登録できない' do
         # ユーザー本名（名前）に空を設定
@@ -189,7 +189,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include("First name can't be blank")
+        expect(@user.errors.full_messages).to include("名前を入力してください")
       end
       it 'ユーザー本名（名前）が、半角カタカナの場合、登録できない' do
         # ユーザー本名（名前）に半角カタカナを設定
@@ -197,7 +197,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include('First name Full-width characters')
+        expect(@user.errors.full_messages).to include("名前は全角文字で入力してください")
       end
       it 'ユーザー本名（名前）が、半角英数字の場合、登録できない' do
         # ユーザー本名（名前）に半角英数字を設定
@@ -205,7 +205,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include('First name Full-width characters')
+        expect(@user.errors.full_messages).to include("名前は全角文字で入力してください")
       end
       it 'ユーザー本名のフリガナ（苗字）が、空の場合、登録できない' do
         # ユーザー本名のフリガナ（苗字）に空を設定
@@ -213,7 +213,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include("Last name kana can't be blank")
+        expect(@user.errors.full_messages).to include("フリガナ（苗字）を入力してください")
       end
       it 'ユーザー本名のフリガナ（苗字）が、漢字の場合、登録できない' do
         # ユーザー本名のフリガナ（苗字）に漢字を設定
@@ -221,7 +221,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include('Last name kana Full-width katakana characters')
+        expect(@user.errors.full_messages).to include("フリガナ（苗字）は全角カタカナで入力してください")
       end
       it 'ユーザー本名のフリガナ（苗字）が、ひらがなの場合、登録できない' do
         # ユーザー本名のフリガナ（苗字）にひらがなを設定
@@ -229,7 +229,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include('Last name kana Full-width katakana characters')
+        expect(@user.errors.full_messages).to include("フリガナ（苗字）は全角カタカナで入力してください")
       end
       it 'ユーザー本名のフリガナ（苗字）が、半角カタカナの場合、登録できない' do
         # ユーザー本名のフリガナ（苗字）に半角カタカナを設定
@@ -237,7 +237,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include('Last name kana Full-width katakana characters')
+        expect(@user.errors.full_messages).to include("フリガナ（苗字）は全角カタカナで入力してください")
       end
       it 'ユーザー本名のフリガナ（苗字）が、半角英数字の場合、登録できない' do
         # ユーザー本名のフリガナ（苗字）に半角英数字を設定
@@ -245,7 +245,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include('Last name kana Full-width katakana characters')
+        expect(@user.errors.full_messages).to include("フリガナ（苗字）は全角カタカナで入力してください")
       end
       it 'ユーザー本名のフリガナ（名前）が、空の場合、登録できない' do
         # ユーザー本名のフリガナ（名前）に空を設定
@@ -253,7 +253,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include("First name kana can't be blank")
+        expect(@user.errors.full_messages).to include("フリガナ（名前）を入力してください")
       end
       it 'ユーザー本名のフリガナ（名前）が、漢字の場合、登録できない' do
         # ユーザー本名のフリガナ（名前）に漢字を設定
@@ -261,7 +261,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include('First name kana Full-width katakana characters')
+        expect(@user.errors.full_messages).to include("フリガナ（名前）は全角カタカナで入力してください")
       end
       it 'ユーザー本名のフリガナ（名前）が、ひらがなの場合、登録できない' do
         # ユーザー本名のフリガナ（名前）にひらがなを設定
@@ -269,7 +269,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include('First name kana Full-width katakana characters')
+        expect(@user.errors.full_messages).to include("フリガナ（名前）は全角カタカナで入力してください")
       end
       it 'ユーザー本名のフリガナ（名前）が、半角カタカナの場合、登録できない' do
         # ユーザー本名のフリガナ（名前）に半角カタカナを設定
@@ -277,7 +277,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include('First name kana Full-width katakana characters')
+        expect(@user.errors.full_messages).to include("フリガナ（名前）は全角カタカナで入力してください")
       end
       it 'ユーザー本名のフリガナ（名前）が、半角英数字の場合、登録できない' do
         # ユーザー本名のフリガナ（名前）に半角英数字を設定
@@ -285,7 +285,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include('First name kana Full-width katakana characters')
+        expect(@user.errors.full_messages).to include("フリガナ（名前）は全角カタカナで入力してください")
       end
       it '生年月日が、空の場合、登録できない' do
         # 生年月日に空を設定
@@ -293,7 +293,7 @@ RSpec.describe User, type: :model do
         # 登録確認
         @user.valid?
         # エラーメッセージ確認
-        expect(@user.errors.full_messages).to include("Birth date can't be blank")
+        expect(@user.errors.full_messages).to include("生年月日を入力してください")
       end
     end
   end

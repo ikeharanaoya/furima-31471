@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        last_name: 苗字
+        first_name: 名前
+        last_name_kana: フリガナ（苗字）
+        first_name_kana: フリガナ（名前）
+        birth_date: 生年月日
