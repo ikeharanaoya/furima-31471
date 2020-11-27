@@ -11,4 +11,6 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+  # userのパス設定
+  resources :users, only: [:edit, :update]
 end

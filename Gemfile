@@ -35,6 +35,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.0'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'pry-rails'
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -58,7 +60,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'pry-rails'
 gem 'devise'
 gem 'active_hash'
 gem 'mini_magick'
