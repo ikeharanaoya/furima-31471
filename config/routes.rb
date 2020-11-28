@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   resources :items, except: [:index] do
     # ordersのパス
     resources :orders, only: [:index,:create] do
-      # 住所検索処理のパス
-      get 'addresses_search'
+      collection do
+        # 住所検索処理のパス
+        get 'addresses_search'
+      end
     end
     collection do
       # 検索処理のパス

@@ -43,7 +43,7 @@ class OrdersController < ApplicationController
   # ユーザーのアドレス情報取得
   def addresses_search
     # ユーザーのアドレス情報取得
-    user_address = UserAddress.find(current_user.id)
+    user_address = UserAddress.where(user_id: current_user.id)
 
     # 検索結果を返す
     render json: { post: user_address}

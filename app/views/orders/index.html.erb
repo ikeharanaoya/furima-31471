@@ -87,6 +87,11 @@
         配送先入力
       </h1>
       <div class="form-group">
+        <div class='address-btn'>
+          会員情報から
+          <%= f.submit "流用" ,id: "DiversionBtn" %>
+          <%= f.submit "クリア" ,id: "reset" %>
+        </div>
         <div class='form-text-wrap'>
           <label class="form-text">郵便番号</label>
           <span class="indispensable">必須</span>

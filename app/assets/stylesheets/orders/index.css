@@ -130,6 +130,13 @@
 .shipping-address-form {
   margin-top: 15px;
 }
+.address-btn {
+  margin: 0 auto;
+}
+
+.address-btn>input {
+  width: 60px;
+}
 
 .form-any {
   background: #ccc;
