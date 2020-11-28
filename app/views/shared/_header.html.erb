@@ -21,7 +21,7 @@
     <ul class='lists-right'>
       <% if user_signed_in? %>
         <%# ログインしているときは以下を表示する %>
-        <li><%= link_to current_user.nickname, "#", class: "user-nickname"  %></li>
+        <li><%= link_to current_user.nickname, edit_user_path(current_user), class: "user-nickname"  %></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"  %></li>
       <% else %>
         <%# ログインしてないときは以下を表示する %>

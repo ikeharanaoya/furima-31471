@@ -16,6 +16,8 @@ class OrdersController < ApplicationController
 
     # ItemBuyモデルの新規オブジェクトを生成
     @item_buy = ItemBuy.new
+    # ユーザーの住所情報取得
+    @user_address = UserAddress.where(user_id: current_user.id)
   end
 
   # 商品購入処理
@@ -40,6 +42,14 @@ class OrdersController < ApplicationController
     end
   end
 
+  # ユーザーのアドレス情報取得
+  def addresses_search
+    # ユーザーの住所情報取得
+    user_address = UserAddress.where(user_id: current_user.id)
+
+    # 検索結果を返す
+    render json: { post: user_address }
+  end
   # ストロングパラメーター取得
   private def item_buy_params
     params.require(:item_buy).permit(:postal_code, :prefecture_id, :city,
