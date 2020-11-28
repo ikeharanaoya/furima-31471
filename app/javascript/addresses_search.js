@@ -41,13 +41,16 @@ window.addEventListener("DOMContentLoaded", ()=>{
         // FormDataオブジェクトとして生成して、jsで使えるようにする
         const formData = new FormData(formResult);
 
-        // ユーザーの住所情報を設定
-        document.getElementById("postal-code").value = user_addresses[0].postal_code;
-        document.getElementById("prefecture").value = user_addresses[0].prefecture_id;
-        document.getElementById("city").value = user_addresses[0].city;
-        document.getElementById("addresses").value = user_addresses[0].addresses;
-        document.getElementById("building").value = user_addresses[0].building;
-        document.getElementById("phone-number").value = user_addresses[0].phone_number;
+        // 空判定
+        if(user_addresses.length) {
+          // ユーザーの住所情報を設定
+          document.getElementById("postal-code").value = user_addresses[0].postal_code;
+          document.getElementById("prefecture").value = user_addresses[0].prefecture_id;
+          document.getElementById("city").value = user_addresses[0].city;
+          document.getElementById("addresses").value = user_addresses[0].addresses;
+          document.getElementById("building").value = user_addresses[0].building;
+          document.getElementById("phone-number").value = user_addresses[0].phone_number;
+        }
       };
     });
 
