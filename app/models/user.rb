@@ -12,7 +12,7 @@ class User < ApplicationRecord
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
 
   # パスワード
-  validates_format_of :password, with: PASSWORD_REGEX, message: 'は文字と数字の両方を含めてください'
+  validates_format_of :password, with: PASSWORD_REGEX, message: 'は文字と数字の両方を含めてください', on: :create
 
   # 必須項目の設定
   with_options presence: true do

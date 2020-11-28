@@ -11,6 +11,19 @@ class UsersController < ApplicationController
 
   # ユーザー情報更新処理
   def update
+    # 送信されたIDから、ユーザー情報を設定する
+    @user = User.find(params[:id])
+    # ニックネームの情報を上書き
+    @user[:nickname] = user_params[:nickname]
+      # バリデーション確認
+      unless @user.valid?
+        # エラーの場合は、再表示を行い、処理を終了する
+        render :edit and return
+      end
+    # セッションの中に、user情報を登録
+    session["devise.regist_data"] = {user: @user.attributes}
+    # 次の住所編集画面を読み込み
+    render :new_address
   end
 
   private
