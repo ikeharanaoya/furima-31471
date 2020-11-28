@@ -88,8 +88,10 @@
       </h1>
       <div class="form-group">
         <div class='address-btn'>
-          会員情報から
-          <%= f.submit "流用" ,id: "diversion-btn" %>
+          <% unless @user_address.blank? %>
+            会員情報から
+            <%= f.submit "流用" ,id: "diversion-btn" %>
+          <% end %>
           <%= f.submit "クリア" ,id: "reset-btn" %>
         </div>
         <div class='form-text-wrap'>

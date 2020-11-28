@@ -16,6 +16,8 @@ class OrdersController < ApplicationController
 
     # ItemBuyモデルの新規オブジェクトを生成
     @item_buy = ItemBuy.new
+    # ユーザーの住所情報取得
+    @user_address = UserAddress.where(user_id: current_user.id)
   end
 
   # 商品購入処理
@@ -42,7 +44,7 @@ class OrdersController < ApplicationController
 
   # ユーザーのアドレス情報取得
   def addresses_search
-    # ユーザーのアドレス情報取得
+    # ユーザーの住所情報取得
     user_address = UserAddress.where(user_id: current_user.id)
 
     # 検索結果を返す
