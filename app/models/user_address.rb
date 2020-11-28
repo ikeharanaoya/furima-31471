@@ -14,8 +14,6 @@ class UserAddress < ApplicationRecord
     validates :addresses
     # 電話番号（半角数字確認）
     validates :phone_number, numericality: { only_integer: true }
-    # トークン
-    validates :token
   end
 
   # 電話番号（11桁以内）
