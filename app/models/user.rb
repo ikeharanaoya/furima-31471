@@ -34,4 +34,6 @@ class User < ApplicationRecord
   has_many :items, dependent: :destroy
   # orders テーブル
   has_many :orders, dependent: :destroy
+  # user_address テーブル
+  has_one :user_address, dependent: :destroy
 end
