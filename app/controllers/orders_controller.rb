@@ -46,7 +46,7 @@ class OrdersController < ApplicationController
     user_address = UserAddress.where(user_id: current_user.id)
 
     # 検索結果を返す
-    render json: { post: user_address}
+    render json: { post: user_address }
   end
   # ストロングパラメーター取得
   private def item_buy_params
