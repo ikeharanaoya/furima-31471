@@ -57,7 +57,6 @@ class UsersController < ApplicationController
         render :edit_address and return
       end
     
-      binding.pry
     # 住所が空の場合
     unless @user.user_address
       # ユーザーに住所情報を紐付ける

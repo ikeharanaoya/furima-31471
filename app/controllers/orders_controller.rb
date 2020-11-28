@@ -40,6 +40,14 @@ class OrdersController < ApplicationController
     end
   end
 
+  # ユーザーのアドレス情報取得
+  def addresses_search
+    # ユーザーのアドレス情報取得
+    user_address = UserAddress.find(current_user.id)
+
+    # 検索結果を返す
+    render json: { post: user_address}
+  end
   # ストロングパラメーター取得
   private def item_buy_params
     params.require(:item_buy).permit(:postal_code, :prefecture_id, :city,

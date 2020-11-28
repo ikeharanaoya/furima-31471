@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   # itemsのパス（index以外を設定）
   resources :items, except: [:index] do
     # ordersのパス
-    resources :orders, only: [:index,:create]
+    resources :orders, only: [:index,:create] do
+      # 住所検索処理のパス
+      get 'addresses_search'
+    end
     collection do
       # 検索処理のパス
       get 'search'
