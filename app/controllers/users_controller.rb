@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     # セッションの中に、user情報を登録
     session["devise.regist_data"] = {user: @user.attributes}
     # 次の住所編集画面を読み込み
-    render :new_address
+    render :edit_address
   end
 
   private

@@ -12,5 +12,10 @@ Rails.application.routes.draw do
     end
   end
   # userのパス設定
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:edit, :update] do
+    # ユーザー住所の編集画面のパス
+    resources :addresses, only: [:edit], to: 'users#edit_address'
+    # ユーザー住所の更新処理のパス
+    resources :addresses, only: [:update], to: 'users#update_address'
+  end
 end
